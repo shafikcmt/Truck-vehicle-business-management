@@ -5,7 +5,7 @@ export const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000
 
 const apiClient = axios.create({
   baseURL: API_URL,
-  timeout: 15000,
+  timeout: 120000,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -27,13 +27,13 @@ function normalizeApiError(error) {
 
   if (error.code === 'ECONNABORTED') {
     return {
-      message: `Backend API request timed out. Make sure the backend is running at ${API_URL}.`,
+      message: `Backend API request timed out. Render free backend may be sleeping/cold starting. First open ${API_URL.replace('/api', '/api/health')} and wait until it responds, then try login again.`,
     };
   }
 
   if (error.code === 'ERR_NETWORK' || error.message === 'Network Error' || !error.response) {
     return {
-      message: `Backend API is not reachable at ${API_URL}. Start the backend server and PostgreSQL, then refresh this page.`,
+      message: `Backend API is not reachable at ${API_URL}. Check Render service logs and confirm ${API_URL.replace('/api', '/api/health')} opens successfully.`,
     };
   }
 

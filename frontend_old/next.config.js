@@ -3,16 +3,6 @@ const path = require('path');
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-
-  // This app is a client-side dashboard that talks to the Render API.
-  // Static export makes Vercel deployment simpler and prevents 404 issues
-  // when the repository root is used by mistake.
-  output: 'export',
-  trailingSlash: true,
-  images: {
-    unoptimized: true,
-  },
-
   turbopack: {
     // Keep Turbopack rooted inside this frontend app even if another lockfile
     // exists higher up in C:\\Users or a parent folder.

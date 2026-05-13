@@ -1,0 +1,6 @@
+{
+  "version": 2,
+  "installCommand": "cd frontend && npm install --legacy-peer-deps --no-audit --no-fund",
+  "buildCommand": "cd frontend && npm run build",
+  "outputDirectory": "frontend/out"
+}

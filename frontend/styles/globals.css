@@ -175,3 +175,14 @@ textarea { min-height: 90px; resize: vertical; }
 .muted {
   color: var(--muted);
 }
+
+.muted-small {
+  color: #64748b;
+  font-size: 12px;
+  overflow-wrap: anywhere;
+}
+.alert.success {
+  background: #dcfce7;
+  border-color: #86efac;
+  color: #166534;
+}
